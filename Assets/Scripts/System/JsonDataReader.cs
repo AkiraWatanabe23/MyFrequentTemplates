@@ -9,10 +9,9 @@ public static class JsonDataReader<T>
     public static T LoadData => _loadData;
 
     /// <summary> jsonファイルの読み込み </summary>
-    public static void JsonRead()
+    public static void JsonRead(TextAsset textAsset)
     {
-        //jsonファイル名はプロジェクト毎で異なると思われるため、都度変更
-        var jsonText = Resources.Load<TextAsset>("JsonData").ToString();
+        var jsonText = textAsset.ToString();
         _loadData = JsonUtility.FromJson<T>(jsonText);
     }
 }
